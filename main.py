@@ -1,4 +1,4 @@
-import pygame, pgzero, pgzrun, random, statistics, os
+import pygame, pgzero, pgzrun, random, os
 from genetica import Pessoa, PessoaRANDOM
 
 WIDTH = 1700
@@ -28,13 +28,13 @@ def draw():
     screen.fill((255,255,255))
     fundo.draw()
     for i in range(0,3):
-        desenharpessoa(pessoas_masc[i], 221+(256*i), 339)
-        desenharpessoa(pessoas_fem[i], 221+(256*i), 624)
+        desenhar(pessoas_masc[i], 221+(256*i), 339)
+        desenhar(pessoas_fem[i], 221+(256*i), 624)
     dedodeDeus(pessoas_masc[2], pessoas_fem[1])
     desenharpessoa(filho, 1400, HEIGHT/2)
     print(frame_f)
 
-def desenharpessoa(pessoa, x, y):
+'''def desenharpessoa(pessoa, x, y):
     Olho = Actor('olho_'+pessoa.corolho)
     Olho.pos = (x,y)
     Olho.draw()
@@ -43,7 +43,7 @@ def desenharpessoa(pessoa, x, y):
     Genero.draw()
     Cabelo = Actor(pessoa.genero+'_'+pessoa.tipocabelo+'_'+pessoa.corcabelo)
     Cabelo.pos = (x,y)
-    Cabelo.draw()
+    Cabelo.draw()'''
 
 def dedodeDeus(homem, mulher):
     global filho
@@ -65,21 +65,21 @@ def update():
     pass
 
 def on_mouse_down(pos):
-    if pessoas_masc[0].collidepoint(pos):
+    if pessoas_masc[0].ACabelo.collidepoint(pos):
         frame_m = 1
-    if pessoas_masc[1].collidepoint(pos):
+    if pessoas_masc[1].ACabelo.collidepoint(pos):
         frame_m = 2
-    if pessoas_masc[2].collidepoint(pos):
+    if pessoas_masc[2].ACabelo.collidepoint(pos):
         frame_m = 3
-    if pessoas_masc[3].collidepoint(pos):
+    if pessoas_masc[3].ACabelo.collidepoint(pos):
         frame_m = 4
-    if pessoas_fem[0].collidepoint(pos):
+    if pessoas_fem[0].ACabelo.collidepoint(pos):
         frame_f = 1
-    if pessoas_fem[1].collidepoint(pos):
+    if pessoas_fem[1].ACabelo.collidepoint(pos):
         frame_f = 2
-    if pessoas_fem[2].collidepoint(pos):
+    if pessoas_fem[2].ACabelo.collidepoint(pos):
         frame_f = 3
-    if pessoas_fem[3].collidepoint(pos):
+    if pessoas_fem[3].ACabelo.collidepoint(pos):
         frame_f = 4
 
 pgzrun.go()
